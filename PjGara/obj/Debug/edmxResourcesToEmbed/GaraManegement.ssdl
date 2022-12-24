@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GaraDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GaraData.dbo.db_admin' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="db_admin">
+          <Property Name="AdName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdPass" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="db_bill">
+    <Key>
+      <PropertyRef Name="BiCode" />
+    </Key>
+    <Property Name="BiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BiCode" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="BiType" Type="nvarchar" MaxLength="50" />
+    <Property Name="BiOName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BiPrice" Type="int" />
+    <Property Name="BiQua" Type="int" />
+  </EntityType>
+  <EntityType Name="db_cars">
+    <Key>
+      <PropertyRef Name="CarCode" />
+    </Key>
+    <Property Name="CarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarCode" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="CarName" Type="nvarchar" MaxLength="30" />
+    <Property Name="CarBrand" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarModel" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarOwner" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="db_depot">
+    <Key>
+      <PropertyRef Name="DeCode" />
+    </Key>
+    <Property Name="DeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeCode" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="DeName" Type="nvarchar" MaxLength="30" />
+    <Property Name="DeModel" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeQua" Type="int" />
+  </EntityType>
+  <EntityType Name="db_employees">
+    <Key>
+      <PropertyRef Name="EmCode" />
+    </Key>
+    <Property Name="EmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmCode" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="EmName" Type="nvarchar" MaxLength="30" />
+    <Property Name="EmAge" Type="int" />
+    <Property Name="EmGender" Type="nchar" MaxLength="20" />
+    <Property Name="EmAddress" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="GaraDataModelStoreContainer">
+    <EntitySet Name="db_bill" EntityType="Self.db_bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="db_cars" EntityType="Self.db_cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="db_depot" EntityType="Self.db_depot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="db_employees" EntityType="Self.db_employees" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

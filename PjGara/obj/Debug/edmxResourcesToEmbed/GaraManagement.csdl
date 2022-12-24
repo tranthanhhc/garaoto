@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GaraDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="db_bill">
+    <Key>
+      <PropertyRef Name="BiCode" />
+    </Key>
+    <Property Name="BiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BiCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="BiType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BiOName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BiPrice" Type="Int32" />
+    <Property Name="BiQua" Type="Int32" />
+  </EntityType>
+  <EntityType Name="db_cars">
+    <Key>
+      <PropertyRef Name="CarCode" />
+    </Key>
+    <Property Name="CarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CarName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CarBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CarOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CarTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="db_depot">
+    <Key>
+      <PropertyRef Name="DeCode" />
+    </Key>
+    <Property Name="DeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DeModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeQua" Type="Int32" />
+  </EntityType>
+  <EntityType Name="db_employees">
+    <Key>
+      <PropertyRef Name="EmCode" />
+    </Key>
+    <Property Name="EmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EmName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EmAge" Type="Int32" />
+    <Property Name="EmGender" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EmAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="GaraDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="db_bill" EntityType="Self.db_bill" />
+    <EntitySet Name="db_cars" EntityType="Self.db_cars" />
+    <EntitySet Name="db_depot" EntityType="Self.db_depot" />
+    <EntitySet Name="db_employees" EntityType="Self.db_employees" />
+  </EntityContainer>
+</Schema>

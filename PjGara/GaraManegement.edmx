@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GaraDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'GaraData.dbo.db_admin' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="db_admin">
+          <Property Name="AdName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdPass" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="db_bill">
+          <Key>
+            <PropertyRef Name="BiCode" />
+          </Key>
+          <Property Name="BiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BiCode" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="BiType" Type="nvarchar" MaxLength="50" />
+          <Property Name="BiOName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BiPrice" Type="int" />
+          <Property Name="BiQua" Type="int" />
+        </EntityType>
+        <EntityType Name="db_cars">
+          <Key>
+            <PropertyRef Name="CarCode" />
+          </Key>
+          <Property Name="CarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarCode" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="CarName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CarBrand" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarOwner" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="db_depot">
+          <Key>
+            <PropertyRef Name="DeCode" />
+          </Key>
+          <Property Name="DeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeCode" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="DeName" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeQua" Type="int" />
+        </EntityType>
+        <EntityType Name="db_employees">
+          <Key>
+            <PropertyRef Name="EmCode" />
+          </Key>
+          <Property Name="EmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmCode" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="EmName" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmAge" Type="int" />
+          <Property Name="EmGender" Type="nchar" MaxLength="20" />
+          <Property Name="EmAddress" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="GaraDataModelStoreContainer">
+          <EntitySet Name="db_bill" EntityType="Self.db_bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_cars" EntityType="Self.db_cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_depot" EntityType="Self.db_depot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_employees" EntityType="Self.db_employees" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GaraDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="db_bill">
+          <Key>
+            <PropertyRef Name="BiCode" />
+          </Key>
+          <Property Name="BiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BiCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BiType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BiOName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BiPrice" Type="Int32" />
+          <Property Name="BiQua" Type="Int32" />
+        </EntityType>
+        <EntityType Name="db_cars">
+          <Key>
+            <PropertyRef Name="CarCode" />
+          </Key>
+          <Property Name="CarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CarName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CarBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="db_depot">
+          <Key>
+            <PropertyRef Name="DeCode" />
+          </Key>
+          <Property Name="DeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeQua" Type="Int32" />
+        </EntityType>
+        <EntityType Name="db_employees">
+          <Key>
+            <PropertyRef Name="EmCode" />
+          </Key>
+          <Property Name="EmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EmName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmAge" Type="Int32" />
+          <Property Name="EmGender" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="EmAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="GaraDataEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="db_bill" EntityType="Self.db_bill" />
+          <EntitySet Name="db_cars" EntityType="Self.db_cars" />
+          <EntitySet Name="db_depot" EntityType="Self.db_depot" />
+          <EntitySet Name="db_employees" EntityType="Self.db_employees" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GaraDataModelStoreContainer" CdmEntityContainer="GaraDataEntities1">
+          <EntitySetMapping Name="db_bill">
+            <EntityTypeMapping TypeName="GaraDataModel.db_bill">
+              <MappingFragment StoreEntitySet="db_bill">
+                <ScalarProperty Name="BiId" ColumnName="BiId" />
+                <ScalarProperty Name="BiCode" ColumnName="BiCode" />
+                <ScalarProperty Name="BiType" ColumnName="BiType" />
+                <ScalarProperty Name="BiOName" ColumnName="BiOName" />
+                <ScalarProperty Name="BiPrice" ColumnName="BiPrice" />
+                <ScalarProperty Name="BiQua" ColumnName="BiQua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_cars">
+            <EntityTypeMapping TypeName="GaraDataModel.db_cars">
+              <MappingFragment StoreEntitySet="db_cars">
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="CarCode" ColumnName="CarCode" />
+                <ScalarProperty Name="CarName" ColumnName="CarName" />
+                <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="CarOwner" ColumnName="CarOwner" />
+                <ScalarProperty Name="CarTime" ColumnName="CarTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_depot">
+            <EntityTypeMapping TypeName="GaraDataModel.db_depot">
+              <MappingFragment StoreEntitySet="db_depot">
+                <ScalarProperty Name="DeId" ColumnName="DeId" />
+                <ScalarProperty Name="DeCode" ColumnName="DeCode" />
+                <ScalarProperty Name="DeName" ColumnName="DeName" />
+                <ScalarProperty Name="DeModel" ColumnName="DeModel" />
+                <ScalarProperty Name="DeQua" ColumnName="DeQua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_employees">
+            <EntityTypeMapping TypeName="GaraDataModel.db_employees">
+              <MappingFragment StoreEntitySet="db_employees">
+                <ScalarProperty Name="EmId" ColumnName="EmId" />
+                <ScalarProperty Name="EmCode" ColumnName="EmCode" />
+                <ScalarProperty Name="EmName" ColumnName="EmName" />
+                <ScalarProperty Name="EmAge" ColumnName="EmAge" />
+                <ScalarProperty Name="EmGender" ColumnName="EmGender" />
+                <ScalarProperty Name="EmAddress" ColumnName="EmAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

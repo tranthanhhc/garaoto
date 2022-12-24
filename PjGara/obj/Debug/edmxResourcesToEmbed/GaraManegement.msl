@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GaraDataModelStoreContainer" CdmEntityContainer="GaraDataEntities1">
+    <EntitySetMapping Name="db_bill">
+      <EntityTypeMapping TypeName="GaraDataModel.db_bill">
+        <MappingFragment StoreEntitySet="db_bill">
+          <ScalarProperty Name="BiId" ColumnName="BiId" />
+          <ScalarProperty Name="BiCode" ColumnName="BiCode" />
+          <ScalarProperty Name="BiType" ColumnName="BiType" />
+          <ScalarProperty Name="BiOName" ColumnName="BiOName" />
+          <ScalarProperty Name="BiPrice" ColumnName="BiPrice" />
+          <ScalarProperty Name="BiQua" ColumnName="BiQua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="db_cars">
+      <EntityTypeMapping TypeName="GaraDataModel.db_cars">
+        <MappingFragment StoreEntitySet="db_cars">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="CarCode" ColumnName="CarCode" />
+          <ScalarProperty Name="CarName" ColumnName="CarName" />
+          <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+          <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+          <ScalarProperty Name="CarOwner" ColumnName="CarOwner" />
+          <ScalarProperty Name="CarTime" ColumnName="CarTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="db_depot">
+      <EntityTypeMapping TypeName="GaraDataModel.db_depot">
+        <MappingFragment StoreEntitySet="db_depot">
+          <ScalarProperty Name="DeId" ColumnName="DeId" />
+          <ScalarProperty Name="DeCode" ColumnName="DeCode" />
+          <ScalarProperty Name="DeName" ColumnName="DeName" />
+          <ScalarProperty Name="DeModel" ColumnName="DeModel" />
+          <ScalarProperty Name="DeQua" ColumnName="DeQua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="db_employees">
+      <EntityTypeMapping TypeName="GaraDataModel.db_employees">
+        <MappingFragment StoreEntitySet="db_employees">
+          <ScalarProperty Name="EmId" ColumnName="EmId" />
+          <ScalarProperty Name="EmCode" ColumnName="EmCode" />
+          <ScalarProperty Name="EmName" ColumnName="EmName" />
+          <ScalarProperty Name="EmAge" ColumnName="EmAge" />
+          <ScalarProperty Name="EmGender" ColumnName="EmGender" />
+          <ScalarProperty Name="EmAddress" ColumnName="EmAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
